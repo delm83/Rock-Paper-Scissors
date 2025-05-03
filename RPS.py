@@ -3,7 +3,6 @@
 def player(prev_play, opponent_history=[], guess = ''):
 
     opponent_history.append(prev_play)
-    
     first_two = "".join(opponent_history[1:3])
     first_three = "".join(opponent_history[1:4])
     last_two = "".join(opponent_history[-2:])
@@ -22,12 +21,24 @@ def player(prev_play, opponent_history=[], guess = ''):
 
             return next_in_sequence[last_two]
     
-    best_response = {'P': 'S', 'R': 'P', 'S': 'R'}
+    def kris_strategy(next_in_sequence={
+              'R': 'S',
+              'P': 'R',
+              'S': 'P',
+          }):
+            return 'R' if len(opponent_history) == 3 else next_in_sequence[prev_play]
     
-    if len(opponent_history) < 3:
-        guess = 'P'
+    best_response = {'P': 'S', 'R': 'P', 'S': 'R'}
     
     if first_two == 'PP':
         guess = abbey_strategy()
+    elif first_two == 'PR':
+        guess = kris_strategy()
+    else:
+        guess = 'P'
+        
+    # empty opponent history between each player
+    if len(opponent_history) == 1000:
+        opponent_history.clear()
 
     return best_response[guess]
