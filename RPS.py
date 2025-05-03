@@ -1,4 +1,4 @@
-def player(prev_play, opponent_history=[], guess = '', best_response = {'P': 'S', 'R': 'P', 'S': 'R'}):
+def player(prev_play, opponent_history=[], best_response = {'P': 'S', 'R': 'P', 'S': 'R'}):
 
     opponent_history.append(prev_play)
     first_two = "".join(opponent_history[1:3])
@@ -30,7 +30,7 @@ def player(prev_play, opponent_history=[], guess = '', best_response = {'P': 'S'
             return 'R' if len(opponent_history) == 3 else next_in_sequence[prev_play]
     
     def quincy_strategy(next_in_sequence={
-          # Quincy always follows same pattern, unaffected by my choices
+          # Quincy always follows the same pattern, unaffected by my choices
               'RR': 'P',
               'RP': 'P',
               'PP': 'S',
