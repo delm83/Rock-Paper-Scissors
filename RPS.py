@@ -2,7 +2,6 @@ def player(prev_play, opponent_history=[], best_response = {'P': 'S', 'R': 'P', 
 
     opponent_history.append(prev_play)
     first_two = "".join(opponent_history[1:3])
-    first_three = "".join(opponent_history[1:4])
     last_two = "".join(opponent_history[-2:])
 
     def abbey_strategy(next_in_sequence={
@@ -58,10 +57,10 @@ def player(prev_play, opponent_history=[], best_response = {'P': 'S', 'R': 'P', 
         guess = abbey_strategy()
     elif first_two == 'PR':
         guess = kris_strategy()
-    elif first_three == 'RPP':
-        guess = quincy_strategy()
-    else:
+    elif first_two == 'RR':
         guess = mrugesh_strategy()
+    else:
+        guess = quincy_strategy()
         
     # clear opponent history between each player
     if len(opponent_history) == 1000:
