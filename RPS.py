@@ -81,15 +81,6 @@ def player(prev_play, opponent_history=[], best_response = {'P': 'S', 'R': 'P', 
               "SSR": 0,
               "SSP": 0,
               "SSS": 0,
-              "SRR": 0,
-              "SRP": 0,
-              "SRS": 0,
-              "SPR": 0,
-              "SPP": 0,
-              "SPS": 0,
-              "SSR": 0,
-              "SSP": 0,
-              "SSS": 0,
           }]):
         
         if len(last_three) == 3:
